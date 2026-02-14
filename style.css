@@ -1,0 +1,192 @@
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* ================= BODY ================= */
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+    color: #2e2e2e;
+}
+
+/* ================= HEADER ================= */
+header {
+    background: linear-gradient(135deg, #2e7d32, #1b5e20);
+    color: white;
+    padding: 25px 40px;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* ================= DASHBOARD ================= */
+.dashboard {
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 30px;
+}
+
+/* ================= UPLOAD SECTION ================= */
+.upload-box {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.upload-box input,
+.upload-box button {
+    margin: 10px;
+}
+
+/* ================= BUTTONS ================= */
+button {
+    padding: 12px 22px;
+    border-radius: 8px;
+    border: none;
+    background: #2e7d32;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background: #1b5e20;
+    transform: translateY(-2px);
+}
+
+/* ================= RESULT IMAGE ================= */
+.result-img {
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    margin: 25px auto;
+    border-radius: 14px;
+    border: 3px solid #2e7d32;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* ================= FEATURES ================= */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 22px;
+    margin-top: 40px;
+}
+
+.feature-card {
+    background: white;
+    border-radius: 14px;
+    padding: 22px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 35px rgba(46,125,50,0.25);
+}
+
+.feature-card h3 {
+    color: #2e7d32;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+/* ================= INFO SECTIONS ================= */
+.info-section {
+    max-width: 1100px;
+    margin: 70px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.info-section h2 {
+    color: #1b5e20;
+    margin-bottom: 18px;
+}
+
+.info-section p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #444;
+}
+
+/* ================= FLOW & USE CASES ================= */
+.flow,
+.use-cases {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 25px;
+}
+
+.flow-step,
+.use-card {
+    background: #e8f5e9;
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-weight: 600;
+    color: #2e7d32;
+}
+
+/* ================= FUTURE LIST ================= */
+.future-list {
+    text-align: left;
+    max-width: 700px;
+    margin: 20px auto 0;
+    line-height: 1.8;
+}
+
+/* ================= FOOTER ================= */
+footer {
+    text-align: center;
+    padding: 18px;
+    background: #1b5e20;
+    color: white;
+    margin-top: 60px;
+}
+
+/* ================= GREENPATH AI PROFESSIONAL BACKGROUND ================= */
+
+/* Soft eco + AI glow */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 15% 25%, rgba(46,125,50,0.14), transparent 45%),
+        radial-gradient(circle at 85% 20%, rgba(102,187,106,0.14), transparent 45%),
+        radial-gradient(circle at 50% 85%, rgba(27,94,32,0.16), transparent 55%),
+        linear-gradient(135deg, #e8f5e9, #f1f8e9);
+    z-index: -2;
+}
+
+/* Smart-city grid overlay */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(46,125,50,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(46,125,50,0.045) 1px, transparent 1px);
+    background-size: 42px 42px;
+    z-index: -1;
+}
+.back-wrapper {
+    text-align: center;
+    margin-bottom: 30px;
+}
