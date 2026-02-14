@@ -178,7 +178,7 @@ GreenPath-AI/
 ## 👨‍💻 Developed By
 
 Sunderganesh 
-B.E IT | AI & ML Enthusiast
+T.E IT | AI & ML Enthusiast
 Interested in AI, Sustainability & Smart Systems
 
 ---
