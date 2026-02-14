@@ -99,8 +99,9 @@ This project integrates **Artificial Intelligence, Environmental Science, and We
 ---
 
 ## 8️⃣ Tree Awareness & Information Module
+<img width="1920" height="3370" alt="tree awareness (2)" src="https://github.com/user-attachments/assets/b1533865-6c3c-4a0a-8927-f9b7e1368b9a" />
 
-![Tree Awareness](https://github.com/user-attachments/assets/7f5abcfe-9639-483b-ba0c-a19123687e93)
+
 
 * Educational insights about trees
 * Importance of green conservation
