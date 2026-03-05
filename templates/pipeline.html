@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Processing Pipeline</title>
+
+    <style>
+        :root {
+            --primary: #2e7d32;
+            --primary-dark: #1b5e20;
+            --bg: #f4f6f8;
+            --card: #ffffff;
+            --text-dark: #263238;
+            --text-light: #607d8b;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text-dark);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        header p {
+            margin-top: 8px;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1400px; /* wider to fit 4 cards */
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* 🔥 FORCE 4 COLUMNS */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: 14px;
+            padding: 18px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+        }
+
+        .card h3 {
+            margin: 0 0 10px;
+            font-size: 1.1rem;
+            color: var(--primary-dark);
+            text-align: center;
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .card p {
+            margin-top: 12px;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        .back-btn {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .back-btn button {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 12px 26px;
+            font-size: 1rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background 0.25s ease, transform 0.2s ease;
+        }
+
+        .back-btn button:hover {
+            background: var(--primary-dark);
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* 📱 Responsive fallback */
+        @media (max-width: 1100px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🧠 Image Processing Pipeline</h1>
+    <p>Visual representation of image preprocessing stages for machine learning</p>
+</header>
+
+<div class="container">
+    <div class="grid">
+
+        <!-- Original Image -->
+        <div class="card">
+            <h3>Original Image</h3>
+            <img src="/outputs/original_image.png" alt="Original Image">
+            <p>
+                Raw input image captured from camera or satellite.
+                No processing is applied at this stage.
+            </p>
+        </div>
+
+        <!-- Grayscale Image -->
+        <div class="card">
+            <h3>Grayscale Image</h3>
+            <img src="/outputs/grayscale_image.png" alt="Grayscale Image">
+            <p>
+                Converted to grayscale to remove color information
+                and reduce computational complexity.
+            </p>
+        </div>
+
+        <!-- Preprocessed Image -->
+        <div class="card">
+            <h3>Preprocessed Image</h3>
+            <img src="/outputs/preprocessed_image.png" alt="Preprocessed Image">
+            <p>
+                Noise reduction and contrast enhancement applied.
+                Image is prepared for machine learning analysis.
+            </p>
+        </div>
+
+        <!-- Edge / Feature Enhanced Image -->
+        <div class="card">
+            <h3>Edge / Feature Enhanced Image</h3>
+            <img src="/outputs/edge_image.png.png" alt="Edge Detection Image">
+            <p>
+                Important edges and features are highlighted to help
+                object detection and classification models.
+            </p>
+        </div>
+
+    </div>
+    <!-- BACK BUTTON BELOW GRID -->
+    <div class="back-btn">
+        <a href="/">
+            <button>⬅ Back to Dashboard</button>
+        </a>
+    </div>
+</div>
+
+<footer>
+    © 2026 • Image Processing Module • GreenPath AI
+</footer>
+
+</body>
+</html>

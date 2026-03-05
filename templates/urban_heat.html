@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Urban Heat Reduction</title>
+</head>
+
+<body style="margin:0; font-family:Segoe UI, Arial, sans-serif; 
+background:linear-gradient(to right,#ffffff,#e8f5e9);">
+
+<div style="max-width:550px; margin:80px auto; background:white;
+padding:40px; border-radius:12px; 
+box-shadow:0 8px 20px rgba(0,0,0,0.1);
+text-align:center;">
+
+    <h2 style="color:#2e7d32; margin-bottom:25px;">
+        🌡 Urban Heat Reduction Analysis
+    </h2>
+
+    <div style="background:#f1f8e9; padding:20px; border-radius:8px; margin-bottom:20px;">
+        <h3 style="margin:10px 0;">🌳 Total Trees Detected: {{ tree_count }}</h3>
+        <h3 style="margin:10px 0;">🌿 Green Cover: {{ green }} %</h3>
+    </div>
+
+    <div style="margin-top:20px;">
+        <h2 style="color:#2e7d32; margin-bottom:10px;">
+            Cooling Impact: {{ reduction }} °C
+        </h2>
+
+        <!-- ✅ FIXED VARIABLE NAME -->
+        <h3 style="font-weight:bold; color:#1b5e20;">
+            Cooling Level: {{ cooling_level }}
+        </h3>
+
+        <h2 style="margin-top:20px; color:#004d40;">
+            Estimated Area Temperature: {{ final_temp }} °C
+        </h2>
+    </div>
+
+    <div style="margin-top:30px;">
+        <a href="/" style="text-decoration:none;">
+            <button style="padding:10px 20px; 
+            background:#2e7d32; 
+            color:white; 
+            border:none; 
+            border-radius:6px; 
+            cursor:pointer;">
+            ⬅ Back to Dashboard
+            </button>
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

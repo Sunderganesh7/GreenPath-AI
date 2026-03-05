@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tree Density Heatmap | GreenPath AI</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f4f6f8;
+            color: #333;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #607d8b;
+            margin-bottom: 30px;
+        }
+
+        .heatmap-box img {
+            width: 90%;
+            max-width: 900px;
+            border-radius: 12px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+            margin-bottom: 30px;
+            border: 3px solid #e0e0e0;
+            background: white;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 14px;
+            padding: 25px;
+            margin: 25px auto;
+            text-align: left;
+            box-shadow: 0 8px 22px rgba(0,0,0,0.1);
+        }
+
+        .info-card h2 {
+            color: #1b5e20;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            line-height: 1.8;
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .legend span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+
+        .dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+        }
+
+        .blue { background: #1976d2; }
+        .green { background: #2e7d32; }
+        .red { background: #d32f2f; }
+
+        .back-btn {
+            margin-top: 35px;
+        }
+
+        .back-btn a {
+            text-decoration: none;
+            padding: 12px 26px;
+            background: #2e7d32;
+            color: white;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: background 0.25s ease, transform 0.2s ease;
+            display: inline-block;
+        }
+
+        .back-btn a:hover {
+            background: #1b5e20;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🌡️ Tree Density Heatmap</h1>
+    <p class="subtitle">
+        Visual analysis of tree concentration and spatial distribution
+    </p>
+
+    <!-- Heatmap Image -->
+    <div class="heatmap-box">
+        <img src="/outputs/tree_heatmap.png" alt="Tree Density Heatmap">
+    </div>
+
+    <!-- Meaning Section -->
+    <div class="info-card">
+        <h2>What Does This Heatmap Represent?</h2>
+        <p>
+            The tree density heatmap visually represents where trees are
+            concentrated in the given area. It converts individual tree
+            detections into a continuous color-based density map.
+        </p>
+    </div>
+
+    <!-- Color Legend -->
+    <div class="info-card">
+        <h2>Color Interpretation</h2>
+
+        <div class="legend">
+            <span><div class="dot blue"></div> Low Tree Density</span>
+            <span><div class="dot green"></div> Medium Tree Density</span>
+            <span><div class="dot red"></div> High Tree Density</span>
+        </div>
+
+        <p style="margin-top:15px;">
+            Red regions indicate dense clusters of trees, while blue regions
+            represent sparse or open areas.
+        </p>
+    </div>
+
+    <!-- Importance Section -->
+    <div class="info-card">
+        <h2>Why Is Tree Density Heatmap Important?</h2>
+        <ul>
+            <li>Shows spatial distribution of trees</li>
+            <li>Identifies green corridors and dense vegetation zones</li>
+            <li>Supports urban and environmental planning</li>
+            <li>Helps monitor forest density and deforestation</li>
+            <li>Useful for smart city and sustainability analysis</li>
+        </ul>
+    </div>
+
+    <!-- Back Button -->
+    <div class="back-btn">
+        <a href="/">← Back to Home</a>
+    </div>
+
+</div>
+
+</body>
+</html>

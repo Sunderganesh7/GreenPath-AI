@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tree Awareness</title>
+
+<style>
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+    margin: 0;
+    text-align: center;
+}
+
+h1 {
+    padding: 25px 10px;
+    color: #1b5e20;
+    font-weight: 700;
+}
+
+/* LEGEND */
+.legend {
+    max-width: 900px;
+    margin: 0 auto 20px;
+    background: #ffffff;
+    padding: 15px 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    text-align: left;
+}
+
+.legend-item {
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.legend-green { border-left: 6px solid #2e7d32; }
+.legend-yellow { border-left: 6px solid #fb8c00; }
+.legend-red { border-left: 6px solid #c62828; }
+
+/* GRID */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    padding: 25px;
+}
+
+/* CARD */
+.card {
+    background: white;
+    padding: 18px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(46,125,50,0.25);
+}
+
+/* STATUS STRIP */
+.card::after {
+    content: "";
+    position: absolute;
+    top: 12px;
+    bottom: 12px;
+    left: 0;
+    width: 6px;
+    border-radius: 0 6px 6px 0;
+}
+
+.card.common::after {
+    background: linear-gradient(#66bb6a, #2e7d32);
+}
+
+.card.rare::after {
+    background: linear-gradient(#ffb74d, #fb8c00);
+}
+
+.card.endangered::after {
+    background: linear-gradient(#ef5350, #c62828);
+}
+
+/* IMAGE */
+.tree-img {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 3px solid #2e7d32;
+    margin: 12px auto 16px;
+    display: block;
+    box-shadow: 0 0 14px rgba(76,175,80,0.45);
+}
+
+h2 {
+    color: #2e7d32;
+    margin-bottom: 8px;
+}
+
+p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 6px 0;
+    color: #333;
+}
+
+p strong {
+    color: #1b5e20;
+}
+
+.danger {
+    color: #c62828;
+    font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🌳 Tree Usage & Extinction Awareness</h1>
+
+<!-- LEGEND -->
+<div class="legend">
+    <div class="legend-item legend-green">
+        🟢 <strong>Common</strong><br>
+        Population is stable
+    </div>
+    <div class="legend-item legend-yellow">
+        🟡 <strong>Rare</strong><br>
+        Population declining
+    </div>
+    <div class="legend-item legend-red">
+        🔴 <strong>Endangered</strong><br>
+        High risk of extinction
+    </div>
+</div>
+
+<!-- TREE CARDS -->
+<div class="container">
+{% for tree in trees %}
+    <div class="card {{ tree.status|lower }}">
+        <h2>{{ tree.name }}</h2>
+
+        <img
+            src="{{ tree.image_url | default('https://cdn-icons-png.flaticon.com/512/427/427735.png') }}"
+            alt="{{ tree.name }}"
+            class="tree-img"
+            onerror="this.onerror=null; this.src='https://cdn-icons-png.flaticon.com/512/427/427735.png';"
+        >
+
+        <p><strong>Uses:</strong> {{ tree.uses }}</p>
+        <p><strong>Importance:</strong> {{ tree.importance }}</p>
+        <p><strong>Status:</strong> {{ tree.status }}</p>
+        <p class="danger"><strong>Threat:</strong> {{ tree.threat }}</p>
+    </div>
+{% endfor %}
+</div>
+
+</body>
+</html>

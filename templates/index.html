@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GreenPath AI – Environmental Intelligence Dashboard</title>
+
+<style>
+:root {
+    --green-dark: #1b5e20;
+    --green-main: #2e7d32;
+    --green-light: #e8f5e9;
+    --bg: #f4f6f8;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--bg);
+    color: #333;
+}
+
+/* ================= HEADER ================= */
+header {
+    background: linear-gradient(135deg, var(--green-main), var(--green-dark));
+    color: white;
+    padding: 18px 25px;
+    position: relative;
+    text-align: center;
+}
+
+/* Center Title */
+.header-center h1 {
+    margin: 0;
+    font-size: 26px;
+}
+
+.header-center p {
+    margin: 4px 0 0;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* About Button on Right */
+.header-right {
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.header-right a {
+    text-decoration: none;
+}
+
+.header-right button {
+    padding: 9px 18px;
+    background: white;
+    color: var(--green-dark);
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.header-right button:hover {
+    background: var(--green-light);
+    transform: translateY(-2px);
+}
+
+/* ================= DASHBOARD ================= */
+.dashboard {
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 25px;
+}
+
+/* ================= UPLOAD CARD ================= */
+.upload-box {
+    background: white;
+    padding: 30px;
+    border-radius: 14px;
+    max-width: 460px;
+    margin: auto;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    text-align: center;
+}
+
+.upload-box h2 {
+    margin-top: 0;
+    color: var(--green-dark);
+}
+
+input[type="file"] {
+    margin-top: 12px;
+}
+
+/* ================= BUTTONS ================= */
+button {
+    padding: 11px 22px;
+    background: var(--green-main);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background: var(--green-dark);
+    transform: translateY(-2px);
+}
+
+/* ================= RESULT ================= */
+.result-sections {
+    text-align: center;
+    margin-top: 35px;
+}
+
+.result-sections h2 {
+    color: var(--green-dark);
+}
+
+.result-img {
+    max-width: 700px;
+    margin-top: 18px;
+    border-radius: 12px;
+    border: 3px solid #ddd;
+}
+
+/* ================= FEATURES ================= */
+.features {
+    margin-top: 45px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 22px;
+}
+
+.feature-card {
+    background: white;
+    padding: 22px;
+    border-radius: 14px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(46,125,50,0.25);
+}
+
+.feature-card h3 {
+    margin-top: 0;
+    color: var(--green-main);
+}
+
+.feature-card p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.feature-card a {
+    margin-top: auto;
+    text-decoration: none;
+}
+
+.feature-card button {
+    width: 100%;
+    margin-top: 12px;
+}
+
+/* ================= FOOTER ================= */
+footer {
+    background: #eeeeee;
+    text-align: center;
+    padding: 14px;
+    margin-top: 60px;
+    font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-center">
+        <h1>🌱 GreenPath AI</h1>
+        <p>AI-Powered Environmental Intelligence Platform</p>
+    </div>
+
+    <div class="header-right">
+        <a href="/about">
+            <button>About</button>
+        </a>
+    </div>
+</header>
+
+<div class="dashboard">
+
+    <!-- UPLOAD -->
+    <div class="upload-box">
+        <h2>Upload Satellite / Park Image</h2>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="image" required>
+            <br><br>
+            <button type="submit">Analyze Image</button>
+        </form>
+    </div>
+
+    {% if tree_count is not none %}
+
+    <!-- RESULT -->
+    <div class="result-sections">
+        <h2>🌳 Trees Detected: {{ tree_count }}</h2>
+        <img src="/outputs/yolo_tree_output.png" class="result-img">
+    </div>
+
+    <div class="features">
+
+    <!-- 1 -->
+    <div class="feature-card">
+        <h3>🧪 Image Pipeline</h3>
+        <p>Preprocessing and AI pipeline stages for analysis.</p>
+        <a href="/pipeline"><button>View</button></a>
+    </div>
+
+    <!-- 2 -->
+    <div class="feature-card">
+        <h3>🌲 Tree Detection</h3>
+        <p>YOLOv8-based deep learning model to detect and count trees.</p>
+        <a href="/"><button>View</button></a>
+    </div>
+
+    <!-- 3 -->
+    <div class="feature-card">
+        <h3>🌍 Tree Distribution</h3>
+        <p>Spatial distribution of trees across image regions.</p>
+        <a href="/tree-distribution"><button>View</button></a>
+    </div>
+
+    <!-- 4 -->
+    <div class="feature-card">
+        <h3>🔥 Tree Density Heatmap</h3>
+        <p>Heatmap visualization (Blue = Low, Yellow = Medium, Red = High density).</p>
+        <a href="/heatmap"><button>Open</button></a>
+    </div>
+
+    <!-- 5 -->
+    <div class="feature-card">
+        <h3>🌱 Green Cover Estimation</h3>
+        <p>Percentage analysis of green vs non-green areas.</p>
+        <a href="/green-cover"><button>Estimate</button></a>
+    </div>
+
+    <!-- 6 -->
+    <div class="feature-card">
+        <h3>🌿 Carbon Estimation</h3>
+        <p>Estimated annual CO₂ absorption based on detected trees.</p>
+        <a href="/carbon"><button>View</button></a>
+    </div>
+
+    <!-- 7 -->
+    <div class="feature-card">
+        <h3>🌫 AQI Estimation</h3>
+        <p>AI-based air quality estimation using greenery and visibility analysis.</p>
+        <a href="/aqi"><button>Analyze</button></a>
+    </div>
+
+    <!-- 8 -->
+    <div class="feature-card">
+        <h3>🌡 Urban Heat Reduction</h3>
+        <p>Estimate area temperature reduction using green density.</p>
+        <a href="/urban-heat"><button>View Heat Analysis</button></a>
+    </div>
+
+    <!-- 9 -->
+    <div class="feature-card">
+        <h3>🌍 Smart Zone Classification</h3>
+        <p>AI classification of image regions into green and heat-risk zones.</p>
+        <a href="/smart-zone"><button>Analyze Zones</button></a>
+    </div>
+
+    <!-- 10 -->
+    <div class="feature-card">
+        <h3>🌱 Plantation Recommendation</h3>
+        <p>AI-based suggestions on where new trees should be planted.</p>
+        <a href="/plantation"><button>View</button></a>
+    </div>
+
+    <!-- 11 -->
+    <div class="feature-card">
+        <h3>🌳 Tree Awareness</h3>
+        <p>Information on tree species, usage, and conservation status.</p>
+        <a href="/tree-awareness"><button>Explore</button></a>
+    </div>
+
+    <!-- 12 FINAL -->
+    <div class="feature-card" style="border:2px solid #2e7d32;">
+        <h3>📊 Environmental Report</h3>
+        <p>Complete AI-generated environmental analysis & insights summary.</p>
+        <a href="/environmental-report"><button>View Final Report</button></a>
+    </div>
+
+</div>
+
+
+    
+</div>
+
+
+</div>
+
+
+
+
+    </div>
+    {% endif %}
+
+</div>
+
+
+
+<footer>
+    © 2026 GreenPath AI | Smart Sustainable Cities
+</footer>
+
+</body>
+</html>

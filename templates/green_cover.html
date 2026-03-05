@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Green Cover Estimator</title>
+
+    <style>
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1b5e20;
+            margin: 30px 0;
+        }
+
+        h3 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        /* IMAGE SECTION */
+        .image-container {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .image-box {
+            background: #ffffff;
+            width: 45%;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .image-box img {
+            width: 100%;
+            max-height: 320px;
+            object-fit: contain;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            background: #f0f0f0;
+        }
+
+        /* STATS */
+        .stats {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .stat-box {
+            display: inline-block;
+            margin: 10px 20px;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .green {
+            background: #43a047;
+        }
+
+        .nongreen {
+            background: #546e7a;
+        }
+
+        /* INFO CARDS */
+        .info-card {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+
+        .info-card p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .info-card li {
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+
+        .back-btn {
+            display: block;
+            width: fit-content;
+            margin: 40px auto;
+            padding: 12px 25px;
+            background: #1b5e20;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .back-btn:hover {
+            background: #0d3b14;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>🌱 Green Cover Estimator</h1>
+
+<div class="container">
+
+    <!-- IMAGE COMPARISON -->
+    <div class="image-container">
+        <div class="image-box">
+            <h3>Original Image</h3>
+            <img src="/uploads/{{ session.current_image }}" alt="Original Uploaded Image">
+        </div>
+
+        <div class="image-box">
+            <h3>Green Cover Overlay</h3>
+            <img src="/outputs/{{ green_img }}" alt="Green Cover Overlay">
+        </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats">
+        <div class="stat-box green">
+            🌿 Green Cover: {{ green }}%
+        </div>
+        <div class="stat-box nongreen">
+            🏙️ Non-Green Land: {{ non_green }}%
+        </div>
+    </div>
+
+    <!-- INFO -->
+    <div class="info-card">
+        <h3>Why Green Cover Estimation Is Important</h3>
+
+        <p><strong>1️⃣ Environmental Monitoring</strong><br>
+        Helps track vegetation loss, deforestation, and ecological imbalance.</p>
+
+        <p><strong>2️⃣ Urban Planning & Smart Cities</strong><br>
+        Identifies low-green zones for parks, plantations, and green belts.</p>
+
+        <p><strong>3️⃣ Land-Use Analysis</strong><br>
+        Differentiates vegetation from roads, buildings, and open land.</p>
+
+        <p><strong>4️⃣ Data-Driven Decisions</strong><br>
+        Converts visual data into accurate numerical percentages.</p>
+    </div>
+
+    <div class="info-card">
+        <h3>What This Page Shows</h3>
+        <ul>
+            <li><strong>Original Image</strong> – User uploaded image</li>
+            <li><strong>Green Cover Overlay</strong> – Vegetation highlighted on same image</li>
+            <li><strong>Green Cover %</strong> – Percentage of vegetation area</li>
+            <li><strong>Non-Green %</strong> – Built-up or non-vegetation area</li>
+        </ul>
+    </div>
+
+</div>
+
+<a href="/" class="back-btn">← Back to Dashboard</a>
+
+</body>
+</html>

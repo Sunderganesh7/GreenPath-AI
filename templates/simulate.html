@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tree Impact Simulator</title>
+</head>
+
+<body style="margin:0; font-family:Segoe UI, Arial, sans-serif; 
+background:linear-gradient(to right,#ffffff,#e8f5e9);">
+
+<div style="max-width:750px; margin:60px auto; background:white;
+padding:40px; border-radius:12px; 
+box-shadow:0 8px 20px rgba(0,0,0,0.1);
+text-align:center;">
+
+    <h2 style="color:#2e7d32; margin-bottom:20px;">
+        🌳 Tree Impact Simulator
+    </h2>
+
+    <p style="font-size:16px;">
+        Current Area Temperature: 
+        <b style="color:#1b5e20;">{{ current_temp }} °C</b>
+    </p>
+
+    <!-- ORIGINAL IMAGE -->
+    {% if session.current_image %}
+    <div style="margin-top:20px;">
+        <h3>📷 Original Image</h3>
+        <img src="/uploads/{{ session.current_image }}" 
+             style="max-width:100%; border-radius:8px; margin-top:10px;">
+    </div>
+    {% endif %}
+
+    <!-- FORM -->
+    <form method="POST" style="margin-top:25px;">
+        <input type="number" name="extra_trees" min="0"
+        placeholder="Enter number of trees to add" required
+        style="padding:10px; width:70%; border:1px solid #ccc; 
+        border-radius:6px;">
+
+        <br><br>
+
+        <button type="submit" 
+        style="padding:10px 22px; background:#2e7d32; 
+        color:white; border:none; border-radius:6px; 
+        cursor:pointer;">
+        Simulate
+        </button>
+    </form>
+
+    <!-- RESULT -->
+    {% if future_temp is not none %}
+    <div style="margin-top:30px; background:#f1f8e9; 
+    padding:20px; border-radius:8px;">
+
+        <h3>
+            🌡 Future Temperature: 
+            <span style="color:#004d40;">
+                {{ future_temp }} °C
+            </span>
+        </h3>
+
+        <h3>
+            📉 Cooling Improvement: 
+            <span style="color:#2e7d32;">
+                {{ improvement }} °C
+            </span>
+        </h3>
+
+    </div>
+    {% endif %}
+
+    <!-- SIMULATED IMAGE -->
+    {% if simulated_image %}
+    <div style="margin-top:25px;">
+        <h3>🌳 Simulated Tree Addition</h3>
+        <img src="/outputs/{{ simulated_image }}" 
+             style="max-width:100%; border-radius:8px; margin-top:10px;">
+    </div>
+    {% endif %}
+
+    <div style="margin-top:30px;">
+        <a href="/" style="text-decoration:none;">
+            <button style="padding:10px 20px; 
+            background:#2e7d32; 
+            color:white; border:none; 
+            border-radius:6px; cursor:pointer;">
+            ⬅ Back to Dashboard
+            </button>
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Zone Classification</title>
+</head>
+
+<body style="margin:0; font-family:Segoe UI; 
+background:linear-gradient(to right,#ffffff,#e8f5e9);">
+
+<div style="max-width:700px; margin:60px auto; 
+background:white; padding:40px; 
+border-radius:12px; 
+box-shadow:0 8px 20px rgba(0,0,0,0.1);
+text-align:center;">
+
+    <h2 style="color:#2e7d32;">
+        🌍 Smart Zone Classification
+    </h2>
+
+    <p>Total Trees: <b>{{ tree_count }}</b></p>
+    <p>Green Cover: <b>{{ green }} %</b></p>
+
+    <div style="margin-top:30px;">
+
+        {% for zone, status in zones.items() %}
+        <div style="background:#f1f8e9; 
+        padding:15px; 
+        margin:10px 0; 
+        border-radius:8px;">
+            <h3>{{ zone }} : {{ status }}</h3>
+        </div>
+        {% endfor %}
+
+    </div>
+
+    <div style="margin-top:30px;">
+        <a href="/" style="text-decoration:none;">
+            <button style="padding:10px 20px; 
+            background:#2e7d32; 
+            color:white; 
+            border:none; 
+            border-radius:6px;">
+            ⬅ Back to Dashboard
+            </button>
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

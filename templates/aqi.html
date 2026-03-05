@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GreenPath AI - AQI Estimation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4fff6;
+            color: #2e7d32;
+            text-align: center;
+        }
+
+        .header {
+            background: #2e7d32;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+
+        img {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 3px solid #a5d6a7;
+        }
+
+        .result-box {
+            margin-top: 20px;
+            padding: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 10px;
+            background: #e8f5e9;
+            border-left: 6px solid #2e7d32;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 25px;
+            background-color: #2e7d32;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #1b5e20;
+            transform: scale(1.05);
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #4caf50;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        🌿 GreenPath AI – AQI Estimation
+    </div>
+
+    <div class="container">
+
+        <img src="{{ url_for('uploads', filename=uploaded_image) }}">
+
+        <div class="result-box">
+            {{ aqi_result }}
+        </div>
+
+        <a href="/" class="btn">⬅ Back to Dashboard</a>
+
+        <footer>
+            AI-powered Environmental Analysis using Computer Vision
+        </footer>
+
+    </div>
+
+</body>
+</html>
